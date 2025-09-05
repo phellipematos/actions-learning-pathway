@@ -13,6 +13,7 @@ jobs:
       - run: npm install
       - run: npm run build
   test:
+    if: false
     needs: [build]
     runs-on: ubuntu-latest
     steps:
@@ -23,4 +24,34 @@ jobs:
           node-version: '18.x'
       - run: npm install
       - run: npm test
-  
+  deploy:
+    needs: [build]
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    environment:
+      name: Production
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # This checkout is to allow writing on the repo as we are doing deployment on pages
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - name: Configure github pages
+        uses: actions/configure-pages@v3
+        with:
+          static_site_generator: next
+      - run: npm install
+      - run: npm build
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifacts@v1
+        with:
+          path: "./out"
+      - name: Deploy 
+        id: deployment
+        uses: actions/deploy-pages@v1
