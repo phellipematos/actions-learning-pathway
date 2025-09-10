@@ -12,5 +12,5 @@ jobs:
           node-version: '18.x'
       - run: npm install
       - run: npm run build
-      - name: Build Info
+      - name: Build Infos
         run: echo "This is a Android build generated on Mac machines :rocket" >> $GITHUB_STEP_SUMMARY
