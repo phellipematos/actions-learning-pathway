@@ -13,4 +13,4 @@ jobs:
       - run: npm install
       - run: npm run build
       - name: Build Infos
-        run: "::debug::MY MESSAGE"
+        run: "::debug::MY MESSAGEs"
