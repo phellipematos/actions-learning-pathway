@@ -18,6 +18,9 @@ jobs:
         run: echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
       - name: Setting Warning
         run: echo "::warning title=YOUR-TITLE::Missing semicolon"
+      - name: Setting Error
+        run: echo "::error title=YOUR-TITLE::Missing semicolon"
+
 
 
 
