@@ -16,4 +16,8 @@ jobs:
         run: echo "::debug::MY MESSAGEs"
       - name: Setting notice
         run: echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+      - name: Setting Warning
+        run: echo "::warning file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
+
+
 
