@@ -13,4 +13,4 @@ jobs:
       - run: npm install
       - run: npm run build
       - name: Build Infos
-        run: echo "This is a Android build generated on Mac machines :rocket" >> $GITHUB_STEP_SUMMARY
+        run: "::debug::MY MESSAGE"
