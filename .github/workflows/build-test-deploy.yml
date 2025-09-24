@@ -1,4 +1,4 @@
-name: Full Process
+name: ${{ 'github-actions-examready' }}
 on: push
 jobs:  
   build:
