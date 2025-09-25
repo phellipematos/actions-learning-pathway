@@ -1,5 +1,11 @@
 name: ${{ 'github-actions-examready' }}
-on: push
+on: 
+  workflow_dispatch:
+    inputs:
+      my-test:
+        type: string
+        required: true
+      
 jobs:  
   build:
     runs-on: ubuntu-latest
